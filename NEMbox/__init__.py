@@ -11,7 +11,6 @@ from builtins import str
 from future import standard_library
 standard_library.install_aliases()
 
-import curses
 import traceback
 import argparse
 import sys
@@ -27,9 +26,6 @@ def start():
     except (OSError, TypeError, ValueError, KeyError):
         # clean up terminal while failed
         nembox_menu.screen.keypad(1)
-        curses.echo()
-        curses.nocbreak()
-        curses.endwin()
         traceback.print_exc()
 
 
@@ -44,7 +40,6 @@ parser.add_argument("-v",
 args = parser.parse_args()
 if args.version:
     latest = Menu().check_version()
-    curses.endwin()
     print('NetEase-MusicBox installed version:' + version)
     if latest != version:
         print('NetEase-MusicBox latest version:' + str(latest))

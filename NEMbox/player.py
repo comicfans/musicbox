@@ -24,7 +24,7 @@ import os
 import random
 import re
 
-from .ui import Ui
+from .fake import FakeUi
 from .storage import Storage
 from .api import NetEase
 from .cache import Cache
@@ -38,7 +38,7 @@ class Player(object):
 
     def __init__(self):
         self.config = Config()
-        self.ui = Ui()
+        self.ui = FakeUi()
         self.popen_handler = None
         # flag stop, prevent thread start
         self.playing_flag = False
